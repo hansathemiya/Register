@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Tailors.lk</title>
+    <meta name="description" content="The requested page could not be found on Tailors.lk">
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:wght@700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fffdf6;
+            color: #000000;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .cormorant {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .glass-panel {
+            background: rgba(255, 253, 246, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            max-width: 500px;
+            width: 100%;
+            margin: 1rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .error-code {
+            font-size: 5rem;
+            font-weight: 700;
+            color: #f4c542;
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+
+        .error-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #000000;
+        }
+
+        .error-message {
+            font-size: 1.125rem;
+            color: #4b5563;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .btn {
+            background: #f4c542;
+            color: #000000;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0.5rem;
+        }
+
+        .btn:hover {
+            background: #000000;
+            color: #f4c542;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid #f4c542;
+        }
+
+        .btn-secondary:hover {
+            background: #f4c542;
+            color: #000000;
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info p {
+            margin: 0.5rem 0;
+            font-size: 0.875rem;
+        }
+
+        .contact-link {
+            color: #f4c542;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+
+        .webgl-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .cursor-trail {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            background: #f4c542;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 1rem;
+            width: 100%;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+
+        .footer a {
+            color: #f4c542;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .glass-panel {
+                padding: 2rem 1.5rem;
+            }
+            
+            .error-code {
+                font-size: 4rem;
+            }
+            
+            .error-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas class="webgl-canvas" id="webglCanvas"></canvas>
+    
+    <div class="glass-panel">
+        <div class="error-code">404</div>
+        <h1 class="cormorant error-title">Page Not Found</h1>
+        <p class="error-message">The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+        
+        <div class="button-group">
+            <a href="/" class="btn">Go Home</a>
+            <a href="/#join-form" class="btn btn-secondary">Join Directory</a>
+        </div>
+        
+        <div class="contact-info">
+            <p>Need help? Contact us:</p>
+            <p><a href="mailto:hello@tailors.lk" class="contact-link">hello@tailors.lk</a></p>
+            <p><a href="tel:+94758244216" class="contact-link">+94 75 824 4216</a></p>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>Tailors.lk © 2025 | Developed by <a href="https://elvariente.com" target="_blank">El Variente</a></p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        // GSAP Mouse Trail Effect
+        let cursorTrail = [];
+        const trailCount = 20;
+
+        for (let i = 0; i < trailCount; i++) {
+            const trail = document.createElement('div');
+            trail.className = 'cursor-trail';
+            document.body.appendChild(trail);
+            cursorTrail.push({
+                element: trail,
+                x: 0,
+                y: 0,
+                delay: i * 0.02
+            });
+        }
+
+        document.addEventListener('mousemove', (e) => {
+            gsap.to(cursorTrail[0], {
+                x: e.clientX,
+                y: e.clientY,
+                duration: 0.1
+            });
+
+            for (let i = 1; i < trailCount; i++) {
+                const prev = cursorTrail[i - 1];
+                const current = cursorTrail[i];
+                
+                gsap.to(current, {
+                    x: prev.x,
+                    y: prev.y,
+                    duration: 0.1,
+                    delay: current.delay
+                });
+            }
+        });
+
+        // WebGL Background Animation (Simplified)
+        const canvas = document.getElementById('webglCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const particles = [];
+        const particleCount = 50;
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5,
+                size: Math.random() * 2 + 1
+            });
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(particle => {
+                particle.x += particle.vx;
+                particle.y += particle.vy;
+                
+                if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
+                if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
+                
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(244, 197, 66, 0.3)';
+                ctx.fill();
+            });
+            
+            requestAnimationFrame(animateParticles);
+        }
+        
+        animateParticles();
+    </script>
+</body>
+</html>

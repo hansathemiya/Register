@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tailors.lk - Sri Lanka's Tailoring Community</title>
+    <title>Join Tailors.lk - Register as a Tailor</title>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* External CSS would be linked here, but embedded for this example */
         * {
             margin: 0;
             padding: 0;
@@ -15,159 +14,38 @@
 
         body {
             font-family: 'EB Garamond', serif;
-            background-color: #f8f4f0;
-            color: #333;
+            background-color: #fffbc7;
+            color: #030000;
             line-height: 1.6;
+            padding: 20px;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 0 20px;
+            background: #aaf1fa;
+            border: 1px solid #632220;
+            box-shadow: 4px 4px 0px rgba(99, 34, 32, 0.3);
+            border-radius: 0; /* Sharp edges */
+            padding: 40px;
         }
 
-        /* Paper Print Aesthetic */
-        .card {
-            background: white;
-            border: 1px solid #e0d6cc;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            border-radius: 8px;
-            padding: 24px;
-            margin: 16px 0;
-        }
-
-        .form-card {
-            background: white;
-            border: 2px solid #e0d6cc;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-            border-radius: 12px;
-            padding: 32px;
-            margin: 20px 0;
-        }
-
-        /* Header & Hero */
-        header {
-            background: white;
-            border-bottom: 1px solid #e0d6cc;
-            padding: 20px 0;
-            margin-bottom: 40px;
-        }
-
-        .hero {
+        .form-header {
             text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(135deg, #fffaf7 0%, #f8f4f0 100%);
-            border-bottom: 1px solid #e0d6cc;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
-        .hero h1 {
+        .form-header h1 {
+            color: #632220;
             font-size: 2.5rem;
-            color: #800000;
-            margin-bottom: 16px;
-            font-weight: 700;
+            margin-bottom: 10px;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* How It Works */
-        .how-it-works {
-            margin: 60px 0;
-        }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .step {
-            text-align: center;
-            padding: 30px;
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background: #800000;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin: 0 auto 20px;
-        }
-
-        /* Services */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            margin: 40px 0;
-        }
-
-        .service-card {
-            transition: transform 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-4px);
-        }
-
-        .service-title {
-            color: #800000;
-            font-size: 1.3rem;
-            margin-bottom: 8px;
-        }
-
-        .service-price {
-            color: #2c5530;
-            font-weight: 600;
+        .form-header p {
             font-size: 1.1rem;
-            margin: 12px 0;
+            color: #333;
         }
 
-        .btn {
-            background: #800000;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-family: inherit;
-            font-size: 1rem;
-            transition: background 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn:hover {
-            background: #660000;
-        }
-
-        .btn-whatsapp {
-            background: #25D366;
-            color: white;
-            text-decoration: none;
-            padding: 12px 24px;
-            border-radius: 6px;
-            display: inline-block;
-            margin-top: 16px;
-        }
-
-        .btn-whatsapp:hover {
-            background: #128C7E;
-        }
-
-        /* Forms */
         .form-group {
             margin-bottom: 20px;
         }
@@ -176,337 +54,346 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
-            color: #333;
+            color: #030000;
         }
 
         .form-group input,
-        .form-group select,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
             padding: 12px;
-            border: 1px solid #d0c0b0;
-            border-radius: 6px;
+            border: 2px solid #632220;
+            border-radius: 0; /* Sharp edges */
             font-family: inherit;
             font-size: 1rem;
+            background: #fffbc7;
         }
 
         .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
+        .form-group textarea:focus,
+        .form-group select:focus {
             outline: none;
-            border-color: #800000;
-            box-shadow: 0 0 0 2px rgba(128, 0, 0, 0.1);
+            box-shadow: 4px 4px 0px rgba(99, 34, 32, 0.3);
         }
 
-        /* Footer */
-        footer {
-            background: white;
-            border-top: 1px solid #e0d6cc;
-            padding: 40px 0 20px;
-            margin-top: 60px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .social-links a {
-            color: #800000;
-            text-decoration: none;
-            padding: 8px 16px;
-            border: 1px solid #e0d6cc;
-            border-radius: 6px;
+        .btn {
+            background: #aaf1fa;
+            color: #030000;
+            border: 2px solid #632220;
+            padding: 12px 24px;
+            border-radius: 0; /* Sharp edges */
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1rem;
             transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 2px 2px 0px rgba(99, 34, 32, 0.3);
         }
 
-        .social-links a:hover {
-            background: #800000;
-            color: white;
+        .btn:hover {
+            background: #632220;
+            color: #aaf1fa;
+            box-shadow: 4px 4px 0px rgba(99, 34, 32, 0.5);
+            transform: translate(-2px, -2px);
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .form-card {
-                padding: 20px;
-            }
+        .btn-primary {
+            background: #f5a6f3;
+            border-color: #632220;
         }
 
-        /* Hidden elements */
-        #google-form {
-            display: none;
+        .btn-primary:hover {
+            background: #632220;
+            color: #f5a6f3;
         }
 
-        .thank-you {
+        .required {
+            color: #632220;
+        }
+
+        .form-success {
             background: #d4edda;
             color: #155724;
             padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
+            border-radius: 0; /* Sharp edges */
             border: 1px solid #c3e6cb;
+            margin: 20px 0;
+            display: none;
+        }
+
+        /* Styled Checkbox Group */
+        .checkbox-group {
+            background: white;
+            padding: 15px;
+            border: 1px solid #632220;
+            border-radius: 0;
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            margin: 8px 0;
+        }
+
+        .custom-checkbox {
+            position: relative;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #632220;
+            border-radius: 0;
+            margin-right: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            transition: all 0.2s ease;
+        }
+
+        .custom-checkbox.checked {
+            background: #632220;
+        }
+
+        .custom-checkbox.checked::after {
+            content: "✓";
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .checkbox-label {
+            flex: 1;
+            cursor: pointer;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .other-service-container {
+            margin-top: 10px;
+            padding-left: 30px;
+        }
+
+        .other-service-input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #632220;
+            border-radius: 0;
+            font-family: inherit;
+            background: #fffbc7;
+        }
+
+        /* Hidden iframe for Google Form submission */
+        #hidden_iframe {
+            display: none;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1 style="text-align: center; color: #800000; font-size: 2rem; margin: 0;">Tailors.lk</h1>
-        </div>
-    </header>
-
-    <section class="hero">
-        <div class="container">
-            <h1>Sri Lanka's Tailoring Community</h1>
-            <p>Find professional tailors, book custom services, and get your garments tailored to perfection</p>
-        </div>
-    </section>
-
     <div class="container">
-        <section class="how-it-works">
-            <h2 style="text-align: center; color: #800000; margin-bottom: 40px; font-size: 2rem;">How It Works</h2>
-            <div class="steps">
-                <div class="step card">
-                    <div class="step-number">1</div>
-                    <h3>Choose Service</h3>
-                    <p>Browse our available tailoring services and select what you need</p>
-                </div>
-                <div class="step card">
-                    <div class="step-number">2</div>
-                    <h3>Book Online</h3>
-                    <p>Fill out the booking form with your details and preferences</p>
-                </div>
-                <div class="step card">
-                    <div class="step-number">3</div>
-                    <h3>Get Tailored</h3>
-                    <p>Connect with our professional tailors and get your perfect fit</p>
+        <div class="form-header">
+            <h1>Join Tailors.lk</h1>
+            <p>Register your tailoring business and reach new customers</p>
+        </div>
+
+        <form id="tailor-registration-form" action="https://docs.google.com/forms/d/e/1FAIpQLSeQRwofFdTJizP8h2qDSjCkfkwQUm5sY2PVY0OxiCVWPBCe5Q/formResponse" method="POST" target="hidden_iframe">
+            <!-- Name Field -->
+            <div class="form-group">
+                <label for="name">Full Name <span class="required">*</span></label>
+                <input type="text" id="name" name="entry.130327913" required>
+            </div>
+
+            <!-- Business Name Field -->
+            <div class="form-group">
+                <label for="business-name">Business or Brand Name <span class="required">*</span></label>
+                <input type="text" id="business-name" name="entry.70566231" required>
+            </div>
+
+            <!-- Location/Address Field -->
+            <div class="form-group">
+                <label for="location">Location/Address <span class="required">*</span></label>
+                <input type="text" id="location" name="entry.2136965479" required>
+            </div>
+
+            <!-- Phone Number Field -->
+            <div class="form-group">
+                <label for="phone">Phone Number <span class="required">*</span></label>
+                <input type="tel" id="phone" name="entry.496092124" required>
+            </div>
+
+            <!-- Email Field -->
+            <div class="form-group">
+                <label for="email">Email Address <span class="required">*</span></label>
+                <input type="email" id="email" name="entry.958771356" required>
+            </div>
+
+            <!-- Services Field (Styled Checkboxes) -->
+            <div class="form-group">
+                <label>Select Services Offered (Check all that apply):</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <div class="custom-checkbox" onclick="toggleCheckbox(this)">
+                            <input type="checkbox" name="entry.189478647" value="Custom made garments">
+                        </div>
+                        <label class="checkbox-label">Custom made garments</label>
+                    </div>
+                    
+                    <div class="checkbox-item">
+                        <div class="custom-checkbox" onclick="toggleCheckbox(this)">
+                            <input type="checkbox" name="entry.189478647" value="Ready made garments">
+                        </div>
+                        <label class="checkbox-label">Ready made garments</label>
+                    </div>
+                    
+                    <div class="checkbox-item">
+                        <div class="custom-checkbox" onclick="toggleCheckbox(this)">
+                            <input type="checkbox" name="entry.189478647" value="Kurta Stitching">
+                        </div>
+                        <label class="checkbox-label">Kurta Stitching</label>
+                    </div>
+                    
+                    <div class="checkbox-item">
+                        <div class="custom-checkbox" onclick="toggleCheckbox(this)">
+                            <input type="checkbox" name="entry.189478647" value="Western Wear">
+                        </div>
+                        <label class="checkbox-label">Western Wear</label>
+                    </div>
+                    
+                    <div class="checkbox-item">
+                        <div class="custom-checkbox" onclick="toggleCheckbox(this)">
+                            <input type="checkbox" name="entry.189478647" value="Custom Design">
+                        </div>
+                        <label class="checkbox-label">Custom Design</label>
+                    </div>
+                    
+                    <div class="checkbox-item">
+                        <div class="custom-checkbox" onclick="toggleCheckbox(this)">
+                            <input type="checkbox" name="entry.189478647" value="Saree Stitching">
+                        </div>
+                        <label class="checkbox-label">Saree Stitching</label>
+                    </div>
+                    
+                    <div class="checkbox-item">
+                        <div class="custom-checkbox" onclick="toggleCheckbox(this)">
+                            <input type="checkbox" name="entry.189478647" value="Alterations">
+                        </div>
+                        <label class="checkbox-label">Alterations</label>
+                    </div>
+                    
+                    <div class="checkbox-item">
+                        <div class="custom-checkbox" onclick="toggleCheckbox(this)">
+                            <input type="checkbox" name="entry.189478647" value="Traditional wear">
+                        </div>
+                        <label class="checkbox-label">Traditional wear</label>
+                    </div>
+                    
+                    <div class="checkbox-item">
+                        <div class="custom-checkbox" onclick="toggleCheckbox(this)">
+                            <input type="checkbox" name="entry.189478647" value="__other_option__" id="other-service-checkbox">
+                        </div>
+                        <label class="checkbox-label">Other (please specify below)</label>
+                    </div>
+                    
+                    <div class="other-service-container" id="other-service-container" style="display: none;">
+                        <input type="text" id="other-service-input" name="entry.189478647.other_option_response" class="other-service-input" placeholder="Specify other services">
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <section id="services-section">
-            <h2 style="color: #800000; margin-bottom: 30px;">Our Services</h2>
-            <div class="services-grid" id="services-container">
-                <!-- Services will be loaded here -->
-            </div>
-        </section>
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary">Register Now</button>
+        </form>
 
-        <section id="booking-section" style="display: none;">
-            <div class="form-card">
-                <h2 style="color: #800000; margin-bottom: 20px;">Book Your Service</h2>
-                <form id="booking-form" target="_self" onsubmit="submitBooking(event)">
-                    <input type="hidden" id="form-service-name" name="entry.123456789" value=""> <!-- Replace with actual Google Form entry ID -->
-                    <div class="form-group">
-                        <label for="full-name">Full Name *</label>
-                        <input type="text" id="full-name" name="entry.130327913" required> <!-- Replace with actual Google Form entry ID -->
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="entry.496092124" required> <!-- Replace with actual Google Form entry ID -->
-                    </div>
-                    <div class="form-group">
-                        <label for="location">Location *</label>
-                        <input type="text" id="location" name="entry.2136965479" required> <!-- Replace with actual Google Form entry ID -->
-                    </div>
-                    <div class="form-group">
-                        <label for="selected-service">Service *</label>
-                        <input type="text" id="selected-service" name="entry.987654321" readonly> <!-- Replace with actual Google Form entry ID -->
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message (Optional)</label>
-                        <textarea id="message" name="entry.111222333" rows="4"></textarea> <!-- Replace with actual Google Form entry ID -->
-                    </div>
-                    <button type="submit" class="btn">Book Now</button>
-                </form>
-                <div id="thank-you-message" style="display: none;">
-                    <div class="thank-you">
-                        <h3>Thank You!</h3>
-                        <p>Your booking request has been received. We'll contact you soon to confirm your appointment.</p>
-                        <a href="https://wa.me/94758244216" class="btn-whatsapp" target="_blank">Chat on WhatsApp</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact-section">
-            <div class="form-card">
-                <h2 style="color: #800000; margin-bottom: 20px;">Contact Us</h2>
-                <form id="contact-form" target="_self" onsubmit="submitContact(event)">
-                    <div class="form-group">
-                        <label for="contact-name">Name *</label>
-                        <input type="text" id="contact-name" name="entry.555666777" required> <!-- Replace with actual Google Form entry ID -->
-                    </div>
-                    <div class="form-group">
-                        <label for="contact-phone">Phone *</label>
-                        <input type="tel" id="contact-phone" name="entry.888999000" required> <!-- Replace with actual Google Form entry ID -->
-                    </div>
-                    <div class="form-group">
-                        <label for="contact-message">Message *</label>
-                        <textarea id="contact-message" name="entry.111222444" rows="4" required></textarea> <!-- Replace with actual Google Form entry ID -->
-                    </div>
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
-                <div id="contact-thank-you" style="display: none;">
-                    <div class="thank-you">
-                        <h3>Message Sent!</h3>
-                        <p>We'll get back to you soon.</p>
-                        <a href="https://wa.me/94758244216" class="btn-whatsapp" target="_blank">Chat on WhatsApp</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="card" style="text-align: center; margin: 40px 0;">
-            <h2 style="color: #800000; margin-bottom: 20px;">Are you a pro tailor?</h2>
-            <p>Join Sri Lanka's tailoring community and reach new customers</p>
-            <a href="https://register.tailors.lk" class="btn" target="_blank" style="margin-top: 20px;">Join as a Tailor</a>
-        </section>
+        <div id="form-success" class="form-success">
+            <h3>Registration Successful!</h3>
+            <p>Your registration request has been sent successfully. We'll review your application and get back to you soon.</p>
+            <p>Have questions? Contact us on WhatsApp for immediate assistance.</p>
+            <a href="https://wa.me/94758244216" class="btn" target="_blank">Contact Us on WhatsApp</a>
+        </div>
     </div>
 
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="https://instagram.com/frockline.lk" target="_blank">Instagram</a>
-                <a href="https://web.facebook.com/frockline/" target="_blank">Facebook</a>
-                <a href="https://twitter.com/frocklinelk" target="_blank">Twitter</a>
-            </div>
-            <p style="text-align: center; color: #666; margin-top: 20px;">© 2025 Tailors.lk - Sri Lanka's Tailoring Community</p>
-        </div>
-    </footer>
+    <!-- Hidden iframe for Google Form submission -->
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="onFormSubmit()"></iframe>
 
     <script>
-        // Service data will be loaded from external JSON
-        let services = [];
-
-        // Load services from JSON
-        async function loadServices() {
-            try {
-                const response = await fetch('services.json');
-                services = await response.json();
-                renderServices();
-            } catch (error) {
-                console.error('Error loading services:', error);
-                // Fallback services
-                services = [
-                    {
-                        "id": 1,
-                        "title": "Custom Suit Tailoring",
-                        "description": "Professional suit tailoring with premium fabrics and perfect fit",
-                        "price": "Rs. 15,000",
-                        "duration": "2-3 weeks"
-                    },
-                    {
-                        "id": 2,
-                        "title": "Wedding Dress Alterations",
-                        "description": "Expert alterations for wedding dresses and formal wear",
-                        "price": "Rs. 8,000",
-                        "duration": "1-2 weeks"
-                    },
-                    {
-                        "id": 3,
-                        "title": "Everyday Garment Sewing",
-                        "description": "Shirts, pants, casual wear with attention to detail",
-                        "price": "Rs. 2,500",
-                        "duration": "3-5 days"
-                    }
-                ];
-                renderServices();
-            }
-        }
-
-        function renderServices() {
-            const container = document.getElementById('services-container');
-            container.innerHTML = '';
+        // Handle form submission to prevent redirect
+        document.getElementById('tailor-registration-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
             
-            services.forEach(service => {
-                const card = document.createElement('div');
-                card.className = 'service-card card';
-                card.innerHTML = `
-                    <h3 class="service-title">${service.title}</h3>
-                    <p>${service.description}</p>
-                    <div class="service-price">${service.price}</div>
-                    <p><small>Duration: ${service.duration || '1-2 weeks'}</small></p>
-                    <button class="btn" onclick="bookService('${service.title}', ${service.id})">Book Now</button>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        function bookService(serviceName, serviceId) {
-            document.getElementById('selected-service').value = serviceName;
-            document.getElementById('form-service-name').value = serviceName; // Also set the hidden field
-            document.getElementById('services-section').style.display = 'none';
-            document.getElementById('booking-section').style.display = 'block';
-            document.getElementById('booking-form').style.display = 'block';
-            document.getElementById('thank-you-message').style.display = 'none';
+            // Validate required fields
+            const requiredFields = ['name', 'business-name', 'location', 'phone', 'email'];
+            let isValid = true;
             
-            // Scroll to booking section
-            document.getElementById('booking-section').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function submitBooking(event) {
-            event.preventDefault(); // Prevent default form submission
-
-            // In a real implementation, you would submit the form data to your Google Form here.
-            // For example, using fetch() to POST the data.
-            // For this example, we'll simulate the submission and show the thank you message directly.
-
-            const name = document.getElementById('full-name').value;
-            const phone = document.getElementById('phone').value;
-            const location = document.getElementById('location').value;
-            const service = document.getElementById('selected-service').value;
-
-            if (!name || !phone || !location || !service) {
-                alert('Please fill in all required fields');
-                return;
+            for (const fieldId of requiredFields) {
+                const field = document.getElementById(fieldId);
+                if (!field.value.trim()) {
+                    alert(`Please fill in the ${field.previousElementSibling.textContent.replace('*', '').trim()} field.`);
+                    isValid = false;
+                    field.focus();
+                    break;
+                }
             }
-
-            // Simulate form submission success
-            document.getElementById('booking-form').style.display = 'none';
-            document.getElementById('thank-you-message').style.display = 'block';
-        }
-
-        function submitContact(event) {
-            event.preventDefault(); // Prevent default form submission
-
-            const name = document.getElementById('contact-name').value;
-            const phone = document.getElementById('contact-phone').value;
-            const message = document.getElementById('contact-message').value;
-
-            if (!name || !phone || !message) {
-                alert('Please fill in all required fields');
-                return;
-            }
-
-            // Simulate form submission success
-            document.getElementById('contact-form').style.display = 'none';
-            document.getElementById('contact-thank-you').style.display = 'block';
             
-            // Scroll to thank you message
-            document.getElementById('contact-thank-you').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Initialize the page
-        document.addEventListener('DOMContentLoaded', function() {
-            loadServices();
+            if (isValid) {
+                // Submit the form to the hidden iframe
+                this.submit();
+            }
         });
 
-        // Add this script to handle Google Form submission if needed
-        // Note: Google Forms typically require iframe embedding for custom handling
-        // This is a simplified version that shows the WhatsApp handoff
+        // Function called when the hidden iframe loads (after form submission)
+        function onFormSubmit() {
+            // Hide the form
+            document.getElementById('tailor-registration-form').style.display = 'none';
+            // Show the success message
+            document.getElementById('form-success').style.display = 'block';
+        }
+
+        // Toggle checkbox state
+        function toggleCheckbox(element) {
+            const checkbox = element.querySelector('input[type="checkbox"]');
+            checkbox.checked = !checkbox.checked;
+            
+            if (checkbox.checked) {
+                element.classList.add('checked');
+            } else {
+                element.classList.remove('checked');
+            }
+            
+            // Handle "Other" service
+            if (checkbox.id === 'other-service-checkbox') {
+                const otherContainer = document.getElementById('other-service-container');
+                if (checkbox.checked) {
+                    otherContainer.style.display = 'block';
+                } else {
+                    otherContainer.style.display = 'none';
+                    document.getElementById('other-service-input').value = '';
+                }
+            }
+        }
+
+        // Initialize checkboxes
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.custom-checkbox');
+            checkboxes.forEach(function(checkbox) {
+                const input = checkbox.querySelector('input[type="checkbox"]');
+                if (input.checked) {
+                    checkbox.classList.add('checked');
+                }
+                
+                // Add click event listener for accessibility
+                checkbox.addEventListener('keydown', function(e) {
+                    if (e.key === ' ' || e.key === 'Enter') {
+                        e.preventDefault();
+                        toggleCheckbox(this);
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>

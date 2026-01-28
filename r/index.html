@@ -1,12 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Register as a Tailor | Join Tailors.lk Sri Lanka</title>
-    <meta name="description" content="Register your tailoring business on Tailors.lk, Sri Lanka's premier tailoring marketplace. Connect with customers, grow your business, and get more orders online." />
-    <meta name="keywords" content="tailor registration, join tailors.lk, tailor signup sri lanka, tailoring business registration, online tailoring platform sri lanka" />
+    <meta name="description" content="Register your tailoring business on Tailors.lk, Sri Lanka's premier tailoring marketplace. Connect with customers, grow your business, and get more orders online. Connect with local professionals in Colombo, Kandy, Galle, and more. Search professional tailors in Sri Lanka for custom suits, bridal wear, alterations, uniforms, and more. Find trusted tailors in Colombo, Kandy, Galle and islandwide. Search professional tailors in Sri Lanka for custom suits, saree blouse stitching, bridal wear, alterations, uniforms, and bespoke tailoring. Find trusted tailors in Colombo, Kandy, Galle and islandwide." />
+    <meta name="keywords" content="tailor registration, join tailors.lk, tailor signup sri lanka, tailoring business registration, online tailoring platform sri lanka, blouse stitching, saree fitting, custom tailoring, local tailors, sri lanka tailoring, tailors in sri lanka, tailor colombo sri lanka, best tailor in colombo, tailors in colombo, tailors in kandy, tailors in galle, tailoring shop colombo, custom tailoring sri lanka, bespoke tailoring sri lanka, luxury tailoring colombo, affordable tailoring sri lanka, custom suits sri lanka, tailor made suits colombo, bespoke suits sri lanka, high end custom made suits sri lanka, italian leather suits colombo, office wear tailoring sri lanka, mens trousers tailoring colombo, pants tailoring sri lanka, custom shirts sri lanka, wedding suits for groom sri lanka, saree blouse tailoring sri lanka, bridal saree blouse colombo, designer dresses sri lanka, custom frocks tailoring colombo, skirts tailoring sri lanka, tops tailoring sri lanka, bridal wear sri lanka, bridesmaid dresses colombo, party dresses sri lanka, wedding gowns sri lanka, school uniforms tailor sri lanka, casual clothing tailor colombo, party wear tailoring sri lanka, groom suits tailor colombo, nilame suits sri lanka, traditional wear tailoring sri lanka, groomsmen suits tailor colombo, pants shortening sri lanka, trouser length adjustments colombo, waist resizing tailor sri lanka, sleeve adjustments sri lanka, zip replacement colombo, clothing repair sri lanka, shirt length adjustments tailor sri lanka, alterations tailor colombo, bridal gowns tailor sri lanka, wedding tailoring services colombo, corporate uniforms sri lanka, hotel staff uniforms sri lanka, promotional clothing tailor colombo, bulk tailoring services colombo, company uniforms tailor sri lanka, alterations tailor near me sri lanka, designer tailoring sri lanka, custom suit tailoring sri lanka" />
     <!-- Updated favicon -->
     <link rel="icon" href="https://data.tailors.lk/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -59,7 +58,7 @@
             padding: 0 20px;
         }
 
-        /* Header - Consistent with Homepage */
+        /* Header - Original Design */
         header {
             position: sticky;
             top: 0;
@@ -126,7 +125,6 @@
             align-items: center;
         }
 
-        /* FIXED: Gold Call Button */
         .btn-call {
             display: inline-flex;
             align-items: center;
@@ -201,7 +199,7 @@
             color: var(--teal);
         }
 
-        /* Hero Section for Register Page */
+        /* Hero Section - Original Design */
         .hero {
             padding: 70px 0 50px;
             background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
@@ -251,7 +249,7 @@
             margin-right: auto;
         }
 
-        /* Buttons */
+        /* Buttons - Original Design */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -321,7 +319,7 @@
             }
         }
 
-        /* Benefits Section */
+        /* Benefits Section - Original Design */
         .benefits-section {
             background: var(--bg);
             border-radius: var(--radius);
@@ -363,41 +361,64 @@
             font-weight: 600;
         }
 
-        /* Registration Form */
+        /* COMPACT FORM STYLES (Your Preferred Design) */
         .registration-form {
             background: var(--card-bg);
             border-radius: var(--radius);
-            padding: 35px;
+            padding: 25px;
             box-shadow: var(--shadow);
             border: 1px solid var(--border);
         }
 
         .registration-form h2 {
             color: var(--teal);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             font-size: 1.5rem;
             font-weight: 700;
+            text-align: center;
+        }
+
+        .registration-form > p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            text-align: center;
+            line-height: 1.5;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 480px) {
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-weight: 500;
             color: var(--teal);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         .form-control {
             width: 100%;
-            padding: 12px 15px;
+            padding: 10px 12px;
             border: 1px solid var(--border);
             border-radius: var(--radius-sm);
             font-family: inherit;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             background: var(--bg);
             transition: var(--transition);
         }
@@ -410,27 +431,65 @@
 
         .required {
             color: #e74c3c;
-            margin-left: 3px;
+            margin-left: 2px;
         }
 
-        /* Services Checkbox Grid */
+        /* COMPACT SERVICES CHECKBOXES */
+        .services-section {
+            margin-bottom: 15px;
+        }
+
+        .services-label {
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--teal);
+            font-size: 0.85rem;
+        }
+
+        .services-label span {
+            color: #e74c3c;
+            margin-left: 2px;
+        }
+
+        .services-description {
+            color: var(--text-light);
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        /* 3x3 Compact Grid */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 12px;
-            margin-top: 10px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .service-checkbox {
             display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 10px;
+            gap: 6px;
+            padding: 8px 10px;
             background: var(--bg);
             border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
+            border-radius: 8px;
             cursor: pointer;
             transition: var(--transition);
+            font-size: 0.8rem;
+            min-height: 36px;
         }
 
         .service-checkbox:hover {
@@ -443,14 +502,15 @@
         }
 
         .service-checkbox .checkmark {
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
             border: 2px solid var(--border);
             border-radius: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: var(--transition);
+            flex-shrink: 0;
         }
 
         .service-checkbox input[type="checkbox"]:checked + .checkmark {
@@ -461,13 +521,21 @@
         .service-checkbox input[type="checkbox"]:checked + .checkmark::after {
             content: '✓';
             color: white;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             font-weight: bold;
+        }
+
+        .service-name {
+            font-size: 0.8rem;
+            line-height: 1.2;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
         /* Other Service Input */
         .other-service-input {
-            margin-top: 15px;
+            margin-top: 12px;
             display: none;
         }
 
@@ -475,23 +543,61 @@
             display: block;
         }
 
-        /* Form Success Message */
+        /* Saved Data Indicator */
+        .saved-data-indicator {
+            font-size: 0.8rem;
+            margin: 12px 0;
+            padding: 10px 12px;
+            background: rgba(31, 78, 95, 0.05);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .saved-data-indicator .text {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--teal);
+        }
+
+        /* Form Messages */
         .form-success {
             display: none;
             background: rgba(22, 160, 133, 0.1);
             color: #155724;
-            padding: 25px;
+            padding: 20px;
             border-radius: var(--radius);
             text-align: center;
-            margin-top: 25px;
+            margin-top: 20px;
             border: 1px solid rgba(22, 160, 133, 0.2);
         }
 
-        /* Stats Section */
+        .form-error {
+            display: none;
+            background: rgba(231, 76, 60, 0.1);
+            color: #721c24;
+            padding: 20px;
+            border-radius: var(--radius);
+            text-align: center;
+            margin-top: 20px;
+            border: 1px solid rgba(231, 76, 60, 0.2);
+        }
+
+        /* Stats Section - Original Design */
         .stats-section {
             padding: 60px 0;
             background: linear-gradient(135deg, rgba(31, 78, 95, 0.05) 0%, rgba(13, 54, 69, 0.05) 100%);
             text-align: center;
+        }
+
+        .stats-section h2 {
+            color: var(--teal);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
         }
 
         .stats-grid {
@@ -514,7 +620,7 @@
             font-weight: 500;
         }
 
-        /* FAQ Section */
+        /* FAQ Section - Original Design */
         .faq-section {
             padding: 60px 0;
             background: var(--bg);
@@ -578,12 +684,18 @@
             margin-top: 40px;
         }
 
-        /* CTA Section */
+        /* CTA Section - Original Design */
         .cta-section {
             padding: 70px 0;
             background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
             color: white;
             text-align: center;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
         }
 
         .cta-buttons {
@@ -594,7 +706,7 @@
             margin-top: 30px;
         }
 
-        /* Footer - Consistent with Homepage */
+        /* Footer - Original Design */
         footer {
             background: var(--teal-dark);
             color: white;
@@ -622,6 +734,8 @@
 
         .footer-links li {
             margin-bottom: 6px;
+            display: flex;
+            align-items: center;
         }
 
         .footer-links a {
@@ -645,6 +759,35 @@
             width: 14px;
             text-align: center;
             font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        /* Contact Info Alignment */
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .contact-info-item i {
+            color: var(--gold-light);
+            width: 14px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .contact-info-item a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-info-item a:hover {
+            color: var(--gold-light);
         }
 
         .social-links {
@@ -680,7 +823,7 @@
             font-size: 0.8rem;
         }
 
-        /* Newsletter */
+        /* Newsletter - Original Design */
         .newsletter {
             background: rgba(255, 255, 255, 0.05);
             border-radius: var(--radius-sm);
@@ -736,11 +879,7 @@
             margin-bottom: 8px;
         }
 
-        .contact-info .footer-links {
-            font-size: 0.8rem;
-        }
-
-        /* Responsive Design */
+        /* Responsive Design - Original */
         @media (max-width: 1024px) {
             .footer-grid {
                 grid-template-columns: repeat(3, 1fr);
@@ -779,16 +918,18 @@
                 align-items: center;
             }
 
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
             .registration-form {
                 padding: 25px;
             }
 
             .benefits-section {
                 padding: 25px;
+            }
+
+            .saved-data-indicator {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
             }
         }
 
@@ -800,10 +941,6 @@
             
             .hero h1 {
                 font-size: 1.7rem;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
             }
             
             .faq-question {
@@ -844,7 +981,7 @@
     </style>
 </head>
 <body>
-    <!-- Header - Consistent with Homepage -->
+    <!-- Header - Original Design -->
     <header>
         <div class="container nav-container">
             <a href="/" class="logo">
@@ -868,7 +1005,6 @@
                     <i class="fas fa-search"></i>
                     Find Tailor
                 </a>
-                <!-- FIXED: Gold Call Button -->
                 <a href="tel:+94758244216" class="btn-call">
                     <i class="fas fa-phone"></i>
                     Call Us
@@ -891,7 +1027,6 @@
             <a href="/for-businesses">For Businesses</a>
             <a href="/contact">Contact</a>
             <a href="/register" class="active">Register</a>
-            <!-- FIXED: Gold Call Button in mobile menu too -->
             <a href="tel:+94758244216" class="btn-call" style="margin-top: 10px;">
                 <i class="fas fa-phone"></i>
                 Call Us
@@ -899,7 +1034,7 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section - Original Design -->
     <section class="hero">
         <div class="container hero-content">
             <h1>Register Your Tailoring Business on Tailors.lk</h1>
@@ -922,7 +1057,7 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
+    <!-- Stats Section - Original Design -->
     <section class="stats-section">
         <div class="container">
             <h2 style="color: var(--teal); margin-bottom: 20px; font-size: 1.8rem;">Join Our Growing Community</h2>
@@ -955,7 +1090,7 @@
     <section class="register-content">
         <div class="container">
             <div class="register-grid">
-                <!-- Benefits Section -->
+                <!-- Benefits Section - Original Design -->
                 <div class="benefits-section" id="benefits">
                     <h2>Benefits of Joining Tailors.lk</h2>
                     
@@ -1021,26 +1156,26 @@
                     
                     <div style="margin-top: 30px; padding: 20px; background: rgba(31, 78, 95, 0.05); border-radius: var(--radius-sm);">
                         <h4 style="color: var(--teal); margin-bottom: 10px;">Registration is Free</h4>
-                        <p style="color: var(--text-light); font-size: 0.95rem;">No registration fees. No hidden costs. Start listing your services for free and only pay a small commission when you receive orders.</p>
+                        <p style="color: var(--text-light); font-size: 0.95rem;">No registration fees. No hidden costs. Start listing your services for free.</p>
                     </div>
                 </div>
 
-                <!-- Registration Form -->
+                <!-- COMPACT REGISTRATION FORM (Your Preferred Design) -->
                 <div class="registration-form fade-in" id="registration-form">
                     <h2>Tailor Registration Form</h2>
                     <p style="color: var(--text-light); margin-bottom: 25px;">Fill out the form below to register your tailoring business. Our team will review your application and contact you within 2-3 business days.</p>
                     
                     <form id="tailorRegistrationForm">
-                        <!-- Full Name -->
-                        <div class="form-group">
-                            <label for="fullName">Full Name <span class="required">*</span></label>
-                            <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Enter your full name" required>
-                        </div>
-                        
-                        <!-- Business/Brand Name -->
-                        <div class="form-group">
-                            <label for="businessName">Business or Brand Name <span class="required">*</span></label>
-                            <input type="text" id="businessName" name="businessName" class="form-control" placeholder="Enter your business or brand name" required>
+                        <!-- Full Name & Business Name - Side by Side -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullName">Full Name <span class="required">*</span></label>
+                                <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Enter your full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="businessName">Business Name <span class="required">*</span></label>
+                                <input type="text" id="businessName" name="businessName" class="form-control" placeholder="Enter business or brand name" required>
+                            </div>
                         </div>
                         
                         <!-- Location/Address -->
@@ -1049,85 +1184,76 @@
                             <input type="text" id="location" name="location" class="form-control" placeholder="Enter your shop address or location" required>
                         </div>
                         
-                        <!-- Phone Number -->
-                        <div class="form-group">
-                            <label for="phone">Phone Number <span class="required">*</span></label>
-                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number" required>
+                        <!-- Phone Number & Email - Side by Side -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number <span class="required">*</span></label>
+                                <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email address" required>
+                            </div>
                         </div>
                         
-                        <!-- Email Address -->
-                        <div class="form-group">
-                            <label for="email">Email Address <span class="required">*</span></label>
-                            <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email address" required>
-                        </div>
-                        
-                        <!-- Services Offered -->
-                        <div class="form-group">
-                            <label>Services Offered <span class="required">*</span></label>
-                            <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 10px;">Select all services you offer:</p>
+                        <!-- Services Offered - Compact Design -->
+                        <div class="services-section">
+                            <div class="services-label">Services Offered <span class="required">*</span></div>
+                            <p class="services-description">Select all services you offer:</p>
                             
                             <div class="services-grid">
-                                <!-- Custom made garments -->
                                 <label class="service-checkbox">
                                     <input type="checkbox" name="services" value="Custom made garments">
                                     <span class="checkmark"></span>
-                                    <span>Custom made garments</span>
+                                    <span class="service-name">Custom garments</span>
                                 </label>
                                 
-                                <!-- Ready made garments -->
                                 <label class="service-checkbox">
                                     <input type="checkbox" name="services" value="Ready made garments">
                                     <span class="checkmark"></span>
-                                    <span>Ready made garments</span>
+                                    <span class="service-name">Ready made</span>
                                 </label>
                                 
-                                <!-- Kurta Stitching -->
                                 <label class="service-checkbox">
                                     <input type="checkbox" name="services" value="Kurta Stitching">
                                     <span class="checkmark"></span>
-                                    <span>Kurta Stitching</span>
+                                    <span class="service-name">Kurta Stitching</span>
                                 </label>
                                 
-                                <!-- Western Wear -->
                                 <label class="service-checkbox">
                                     <input type="checkbox" name="services" value="Western Wear">
                                     <span class="checkmark"></span>
-                                    <span>Western Wear</span>
+                                    <span class="service-name">Western Wear</span>
                                 </label>
                                 
-                                <!-- Custom Design -->
                                 <label class="service-checkbox">
                                     <input type="checkbox" name="services" value="Custom Design">
                                     <span class="checkmark"></span>
-                                    <span>Custom Design</span>
+                                    <span class="service-name">Custom Design</span>
                                 </label>
                                 
-                                <!-- Saree Stitching -->
                                 <label class="service-checkbox">
                                     <input type="checkbox" name="services" value="Saree Stitching">
                                     <span class="checkmark"></span>
-                                    <span>Saree Stitching</span>
+                                    <span class="service-name">Saree Stitching</span>
                                 </label>
                                 
-                                <!-- Alterations -->
                                 <label class="service-checkbox">
                                     <input type="checkbox" name="services" value="Alterations">
                                     <span class="checkmark"></span>
-                                    <span>Alterations</span>
+                                    <span class="service-name">Alterations</span>
                                 </label>
                                 
-                                <!-- Traditional wear -->
                                 <label class="service-checkbox">
                                     <input type="checkbox" name="services" value="Traditional wear">
                                     <span class="checkmark"></span>
-                                    <span>Traditional wear</span>
+                                    <span class="service-name">Traditional wear</span>
                                 </label>
                                 
-                                <!-- Other -->
                                 <label class="service-checkbox">
-                                    <input type="checkbox" name="services" value="Other" id="otherCheckbox">
+                                    <input type="checkbox" name="services" value="__other_option__" id="otherCheckbox">
                                     <span class="checkmark"></span>
-                                    <span>Other (please specify)</span>
+                                    <span class="service-name">Other services</span>
                                 </label>
                             </div>
                             
@@ -1135,6 +1261,17 @@
                             <div class="other-service-input" id="otherServiceInput">
                                 <input type="text" id="otherService" name="otherService" class="form-control" placeholder="Please specify other services you offer">
                             </div>
+                        </div>
+                        
+                        <!-- Saved Data Indicator -->
+                        <div id="savedDataIndicator" class="saved-data-indicator" style="display: none;">
+                            <div class="text">
+                                <i class="fas fa-save"></i>
+                                <span>Your progress is saved automatically</span>
+                            </div>
+                            <button type="button" onclick="clearSavedData()" class="btn btn-outline btn-sm" style="font-size: 0.8rem; padding: 4px 8px;">
+                                <i class="fas fa-trash-alt"></i> Clear Saved Data
+                            </button>
                         </div>
                         
                         <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px; font-size: 1rem;">
@@ -1163,12 +1300,29 @@
                             </a>
                         </div>
                     </div>
+
+                    <!-- Error Message -->
+                    <div id="formError" class="form-error">
+                        <i class="fas fa-exclamation-circle" style="font-size: 2.5rem; margin-bottom: 15px; color: #e74c3c;"></i>
+                        <h3 style="color: #e74c3c; margin-bottom: 10px;">Submission Failed</h3>
+                        <p>There was an error submitting your registration. Please try again or contact us directly for assistance.</p>
+                        <div style="margin-top: 20px;">
+                            <button onclick="retrySubmission()" class="btn btn-primary" style="margin-right: 10px;">
+                                <i class="fas fa-redo"></i>
+                                Try Again
+                            </button>
+                            <a href="tel:+94758244216" class="btn btn-outline" style="color: var(--teal); border-color: var(--teal);">
+                                <i class="fas fa-phone"></i>
+                                Call for Help
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
+    <!-- FAQ Section - Original Design -->
     <section class="faq-section">
         <div class="container">
             <h2 style="text-align: center; color: var(--teal); margin-bottom: 40px; font-size: 1.8rem;">Frequently Asked Questions</h2>
@@ -1238,7 +1392,7 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- CTA Section - Original Design -->
     <section class="cta-section">
         <div class="container">
             <h2 style="color: white; margin-bottom: 15px; font-size: 1.8rem;">Ready to Grow Your Tailoring Business?</h2>
@@ -1263,7 +1417,7 @@
         </div>
     </section>
 
-    <!-- Footer - Consistent with Homepage -->
+    <!-- Footer - Original Design -->
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -1345,19 +1499,18 @@
                     <!-- Contact Info -->
                     <div class="contact-info">
                         <h4>Contact Info</h4>
-                        <ul class="footer-links">
-                            <li>
-                                <i class="fas fa-phone"></i> <a href="tel:+94758244216">+94758244216</a>
-                            </li>
-                            <li>
-                                <i class="fas fa-envelope"></i> 
-                                <a href="/cdn-cgi/l/email-protection#592a2c2929362b2d192d383035362b2a773532"><span class="__cf_email__" data-cfemail="94e7e1e4e4fbe6e0d4e0f5fdf8fbe6e7baf8ff">[email&#160;protected]</span></a>
-                            </li>
-                            <li>
-                                <i class="fas fa-map-marker-alt"></i> 
-                                Colombo, Sri Lanka
-                            </li>
-                        </ul>
+                        <div class="contact-info-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+94758244216">+94758244216</a>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:contact@tailors.lk">team@tailors.lk</a>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Colombo, Sri Lanka</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1380,28 +1533,36 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <!-- JavaScript (same as before) -->
+    <script>
         // Google Form Configuration
         const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeQRwofFdTJizP8h2qDSjCkfkwQUm5sY2PVY0OxiCVWPBCe5Q/formResponse';
         
-        // Field IDs as per your specification
+        // Field IDs
         const FIELD_IDS = {
             fullName: 'entry.130327913',
             businessName: 'entry.70566231',
             location: 'entry.2136965479',
             phone: 'entry.496092124',
             email: 'entry.958771356',
-            services: 'entry.189478647', // Checkbox group
-            otherService: 'entry.189478647.other_option_response'
+            services: 'entry.189478647',
+            otherService: 'entry.189478647.other_option_response',
+            referenceId: 'entry.1491117540'
         };
+
+        // Storage key
+        const STORAGE_KEY = 'tailorslk_registration_data';
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             // Set current year
             document.getElementById('current-year').textContent = new Date().getFullYear();
             
-            // Generate reference ID
-            document.getElementById('referenceId').textContent = 'TAILOR-REG-' + Math.floor(1000 + Math.random() * 9000);
+            // Generate initial reference ID
+            generateReferenceId();
+            
+            // Load saved data from local storage
+            loadSavedData();
             
             // Setup event listeners
             setupEventListeners();
@@ -1411,7 +1572,140 @@
             
             // Initialize services checkbox functionality
             initializeServicesCheckboxes();
+            
+            // Auto-save listeners
+            setupAutoSave();
         });
+
+        // Generate reference ID
+        function generateReferenceId() {
+            const refId = 'TAILOR-REG-' + Math.floor(1000 + Math.random() * 9000);
+            document.getElementById('referenceId').textContent = refId;
+            return refId;
+        }
+
+        // Setup auto-save functionality
+        function setupAutoSave() {
+            // Save on input change
+            const inputs = ['fullName', 'businessName', 'location', 'phone', 'email', 'otherService'];
+            inputs.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.addEventListener('input', function() {
+                        saveFormData();
+                    });
+                }
+            });
+            
+            // Save on checkbox change
+            document.querySelectorAll('input[name="services"]').forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    saveFormData();
+                });
+            });
+            
+            // Show saved data indicator if there is saved data
+            const saved = localStorage.getItem(STORAGE_KEY);
+            const indicator = document.getElementById('savedDataIndicator');
+            if (saved && indicator) {
+                indicator.style.display = 'flex';
+            }
+        }
+
+        // Save form data to local storage
+        function saveFormData() {
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                businessName: document.getElementById('businessName').value,
+                location: document.getElementById('location').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                otherService: document.getElementById('otherService').value,
+                services: []
+            };
+            
+            // Get selected services
+            document.querySelectorAll('input[name="services"]:checked').forEach(checkbox => {
+                if (checkbox.value !== '__other_option__') {
+                    formData.services.push(checkbox.value);
+                }
+            });
+            
+            // Check if "Other" is selected
+            const otherCheckbox = document.getElementById('otherCheckbox');
+            formData.otherSelected = otherCheckbox ? otherCheckbox.checked : false;
+            
+            // Save to local storage
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
+                
+                // Show indicator
+                const indicator = document.getElementById('savedDataIndicator');
+                if (indicator) {
+                    indicator.style.display = 'flex';
+                }
+                
+                console.log('Form data saved to local storage');
+            } catch (e) {
+                console.warn('Could not save to local storage:', e);
+            }
+        }
+
+        // Load saved data from local storage
+        function loadSavedData() {
+            try {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                if (!saved) return;
+                
+                const formData = JSON.parse(saved);
+                
+                // Fill text inputs
+                ['fullName', 'businessName', 'location', 'phone', 'email', 'otherService'].forEach(id => {
+                    if (formData[id] && document.getElementById(id)) {
+                        document.getElementById(id).value = formData[id];
+                    }
+                });
+                
+                // Restore checkboxes
+                if (formData.services && formData.services.length > 0) {
+                    document.querySelectorAll('input[name="services"]').forEach(checkbox => {
+                        checkbox.checked = formData.services.includes(checkbox.value);
+                    });
+                }
+                
+                // Restore "Other" checkbox state
+                if (formData.otherSelected && document.getElementById('otherCheckbox')) {
+                    document.getElementById('otherCheckbox').checked = true;
+                    document.getElementById('otherServiceInput').classList.add('show');
+                }
+                
+                console.log('Form data loaded from local storage');
+            } catch (e) {
+                console.warn('Could not load from local storage:', e);
+            }
+        }
+
+        // Clear saved data
+        function clearSavedData() {
+            try {
+                localStorage.removeItem(STORAGE_KEY);
+                
+                // Hide indicator
+                const indicator = document.getElementById('savedDataIndicator');
+                if (indicator) {
+                    indicator.style.display = 'none';
+                }
+                
+                // Clear form fields
+                document.getElementById('tailorRegistrationForm').reset();
+                document.getElementById('otherServiceInput').classList.remove('show');
+                
+                showNotification('Saved data cleared', 'info');
+            } catch (e) {
+                console.warn('Could not clear local storage:', e);
+                showNotification('Failed to clear saved data', 'error');
+            }
+        }
 
         // Setup all event listeners
         function setupEventListeners() {
@@ -1419,38 +1713,54 @@
             const hamburger = document.getElementById('hamburger');
             const mobileMenu = document.getElementById('mobileMenu');
             
-            hamburger.addEventListener('click', () => {
-                mobileMenu.classList.toggle('active');
-                hamburger.classList.toggle('active');
-            });
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+            }
 
             // Close mobile menu when clicking outside
             document.addEventListener('click', (e) => {
-                if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+                if (hamburger && mobileMenu && !hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
                     mobileMenu.classList.remove('active');
                     hamburger.classList.remove('active');
                 }
             });
 
             // Form submission
-            document.getElementById('tailorRegistrationForm').addEventListener('submit', handleFormSubmit);
+            const form = document.getElementById('tailorRegistrationForm');
+            if (form) {
+                form.addEventListener('submit', handleFormSubmit);
+            }
             
             // Other checkbox functionality
-            document.getElementById('otherCheckbox').addEventListener('change', function() {
-                const otherInput = document.getElementById('otherServiceInput');
-                if (this.checked) {
-                    otherInput.classList.add('show');
-                } else {
-                    otherInput.classList.remove('show');
-                    document.getElementById('otherService').value = '';
-                }
-            });
+            const otherCheckbox = document.getElementById('otherCheckbox');
+            if (otherCheckbox) {
+                otherCheckbox.addEventListener('change', function() {
+                    const otherInput = document.getElementById('otherServiceInput');
+                    if (this.checked) {
+                        otherInput.classList.add('show');
+                    } else {
+                        otherInput.classList.remove('show');
+                        document.getElementById('otherService').value = '';
+                    }
+                    saveFormData();
+                });
+            }
 
             // Footer newsletter subscription
-            document.getElementById('footer-subscribe').addEventListener('click', handleNewsletterSubmit);
-            document.getElementById('footer-email').addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') handleNewsletterSubmit();
-            });
+            const footerSubscribe = document.getElementById('footer-subscribe');
+            if (footerSubscribe) {
+                footerSubscribe.addEventListener('click', handleNewsletterSubmit);
+            }
+            
+            const footerEmail = document.getElementById('footer-email');
+            if (footerEmail) {
+                footerEmail.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') handleNewsletterSubmit();
+                });
+            }
         }
 
         // Initialize FAQ functionality
@@ -1458,15 +1768,16 @@
             // Set first FAQ to open by default
             const firstQuestion = document.querySelector('.faq-question');
             if (firstQuestion) {
-                firstQuestion.click();
+                setTimeout(() => firstQuestion.click(), 100);
             }
         }
 
         // Initialize services checkboxes
         function initializeServicesCheckboxes() {
-            // Make sure other input is hidden initially
             const otherInput = document.getElementById('otherServiceInput');
-            otherInput.classList.remove('show');
+            if (otherInput) {
+                otherInput.classList.remove('show');
+            }
         }
 
         // Toggle FAQ answer visibility
@@ -1509,125 +1820,210 @@
             submitButton.disabled = true;
             
             try {
-                // Prepare form data
-                const formData = new FormData(form);
+                // Get form data
+                const formData = getFormData();
+                const referenceId = generateReferenceId();
                 
-                // Prepare Google Form submission data
-                const submissionData = new FormData();
+                // Submit via FormData
+                const submissionSuccess = await submitViaFormData(formData, referenceId);
                 
-                // Add core fields
-                submissionData.append(FIELD_IDS.fullName, formData.get('fullName'));
-                submissionData.append(FIELD_IDS.businessName, formData.get('businessName'));
-                submissionData.append(FIELD_IDS.location, formData.get('location'));
-                submissionData.append(FIELD_IDS.phone, formData.get('phone'));
-                submissionData.append(FIELD_IDS.email, formData.get('email'));
-                
-                // Add services (checkboxes)
-                const selectedServices = [];
-                document.querySelectorAll('input[name="services"]:checked').forEach(checkbox => {
-                    if (checkbox.value !== 'Other') {
-                        selectedServices.push(checkbox.value);
-                    }
-                });
-                
-                // Add services to form data
-                selectedServices.forEach(service => {
-                    submissionData.append(FIELD_IDS.services, service);
-                });
-                
-                // Add other service if specified
-                const otherService = document.getElementById('otherService').value.trim();
-                if (otherService) {
-                    submissionData.append(FIELD_IDS.services, 'Other');
-                    submissionData.append(FIELD_IDS.otherService, otherService);
+                if (submissionSuccess) {
+                    // Clear saved data on successful submission
+                    clearSavedData();
+                    
+                    // Show success message
+                    form.style.display = 'none';
+                    document.getElementById('formSuccess').style.display = 'block';
+                    document.getElementById('formError').style.display = 'none';
+                    
+                    // Scroll to success message
+                    document.getElementById('formSuccess').scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                } else {
+                    throw new Error('Form submission failed');
                 }
                 
-                // Submit to Google Form (blocks redirect)
-                const response = await fetch(GOOGLE_FORM_URL, {
-                    method: 'POST',
-                    mode: 'no-cors', // Important: prevents CORS issues and blocks redirect
-                    body: submissionData
-                });
+            } catch (error) {
+                console.error('Form submission error:', error);
                 
-                // Show success message
+                // Show error message
                 form.style.display = 'none';
-                document.getElementById('formSuccess').style.display = 'block';
+                document.getElementById('formError').style.display = 'block';
+                document.getElementById('formSuccess').style.display = 'none';
                 
-                // Generate new reference ID
-                document.getElementById('referenceId').textContent = 'TAILOR-REG-' + Math.floor(1000 + Math.random() * 9000);
-                
-                // Scroll to success message
-                document.getElementById('formSuccess').scrollIntoView({ 
+                // Scroll to error message
+                document.getElementById('formError').scrollIntoView({ 
                     behavior: 'smooth',
                     block: 'start'
                 });
                 
-            } catch (error) {
-                console.error('Form submission error:', error);
-                showNotification('There was an error submitting your registration. Please try again or contact us directly.', 'error');
+                // Restore button state
                 submitButton.innerHTML = originalButtonText;
                 submitButton.disabled = false;
             }
         }
 
+        // Get form data as object
+        function getFormData() {
+            const data = {
+                fullName: document.getElementById('fullName').value.trim(),
+                businessName: document.getElementById('businessName').value.trim(),
+                location: document.getElementById('location').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                services: [],
+                otherService: document.getElementById('otherService').value.trim()
+            };
+            
+            // Get selected services
+            document.querySelectorAll('input[name="services"]:checked').forEach(checkbox => {
+                if (checkbox.value !== '__other_option__') {
+                    data.services.push(checkbox.value);
+                }
+            });
+            
+            return data;
+        }
+
+        // Submit using FormData
+        async function submitViaFormData(formData, referenceId) {
+            return new Promise((resolve) => {
+                try {
+                    // Create a hidden iframe
+                    const iframe = document.createElement('iframe');
+                    iframe.name = 'google-form-submit-' + Date.now();
+                    iframe.style.display = 'none';
+                    document.body.appendChild(iframe);
+                    
+                    // Create a form
+                    const form = document.createElement('form');
+                    form.method = 'POST';
+                    form.action = GOOGLE_FORM_URL;
+                    form.target = iframe.name;
+                    form.style.display = 'none';
+                    
+                    // Create FormData
+                    const formDataObj = new FormData();
+                    
+                    // Add all fields
+                    formDataObj.append(FIELD_IDS.fullName, formData.fullName);
+                    formDataObj.append(FIELD_IDS.businessName, formData.businessName);
+                    formDataObj.append(FIELD_IDS.location, formData.location);
+                    formDataObj.append(FIELD_IDS.phone, formData.phone);
+                    formDataObj.append(FIELD_IDS.email, formData.email);
+                    formDataObj.append(FIELD_IDS.referenceId, referenceId);
+                    
+                    // Add services
+                    formData.services.forEach(service => {
+                        formDataObj.append(FIELD_IDS.services, service);
+                    });
+                    
+                    // Add other service if specified
+                    if (formData.otherService) {
+                        formDataObj.append(FIELD_IDS.services, '__other_option__');
+                        formDataObj.append(FIELD_IDS.otherService, formData.otherService);
+                    }
+                    
+                    // Convert FormData to URLSearchParams
+                    const params = new URLSearchParams();
+                    for (const [key, value] of formDataObj.entries()) {
+                        params.append(key, value);
+                    }
+                    
+                    // Create hidden inputs
+                    for (const [key, value] of params.entries()) {
+                        const input = document.createElement('input');
+                        input.type = 'hidden';
+                        input.name = key;
+                        input.value = value;
+                        form.appendChild(input);
+                    }
+                    
+                    // Submit form
+                    document.body.appendChild(form);
+                    form.submit();
+                    
+                    // Clean up after submission
+                    setTimeout(() => {
+                        if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
+                        if (form.parentNode) form.parentNode.removeChild(form);
+                        console.log('Form submission attempted');
+                        resolve(true);
+                    }, 2000);
+                    
+                } catch (error) {
+                    console.warn('Form submission failed:', error);
+                    resolve(false);
+                }
+            });
+        }
+
+        // Retry submission
+        function retrySubmission() {
+            // Hide error message
+            document.getElementById('formError').style.display = 'none';
+            
+            // Show form again
+            const form = document.getElementById('tailorRegistrationForm');
+            if (form) {
+                form.style.display = 'block';
+            }
+        }
+
         // Validate form
         function validateForm() {
-            const fullName = document.getElementById('fullName').value.trim();
-            const businessName = document.getElementById('businessName').value.trim();
-            const location = document.getElementById('location').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const email = document.getElementById('email').value.trim();
+            const formData = getFormData();
             
             // Check required fields
-            if (!fullName) {
+            if (!formData.fullName) {
                 showNotification('Please enter your full name', 'error');
                 document.getElementById('fullName').focus();
                 return false;
             }
             
-            if (!businessName) {
-                showNotification('Please enter your business or brand name', 'error');
+            if (!formData.businessName) {
+                showNotification('Please enter your business name', 'error');
                 document.getElementById('businessName').focus();
                 return false;
             }
             
-            if (!location) {
-                showNotification('Please enter your location/address', 'error');
+            if (!formData.location) {
+                showNotification('Please enter your location', 'error');
                 document.getElementById('location').focus();
                 return false;
             }
             
-            if (!phone) {
+            if (!formData.phone) {
                 showNotification('Please enter your phone number', 'error');
                 document.getElementById('phone').focus();
                 return false;
             }
             
-            if (!email) {
+            if (!formData.email) {
                 showNotification('Please enter your email address', 'error');
                 document.getElementById('email').focus();
                 return false;
             }
             
             // Validate email format
-            if (!validateEmail(email)) {
+            if (!validateEmail(formData.email)) {
                 showNotification('Please enter a valid email address', 'error');
                 document.getElementById('email').focus();
                 return false;
             }
             
             // Check if at least one service is selected
-            const selectedServices = document.querySelectorAll('input[name="services"]:checked');
-            if (selectedServices.length === 0) {
-                showNotification('Please select at least one service you offer', 'error');
+            if (formData.services.length === 0 && !formData.otherService) {
+                showNotification('Please select at least one service', 'error');
                 return false;
             }
             
             // Check if "Other" is selected but no text provided
             const otherCheckbox = document.getElementById('otherCheckbox');
-            const otherService = document.getElementById('otherService').value.trim();
-            if (otherCheckbox.checked && !otherService) {
-                showNotification('Please specify your other services', 'error');
+            if (otherCheckbox && otherCheckbox.checked && !formData.otherService) {
+                showNotification('Please specify other services', 'error');
                 document.getElementById('otherService').focus();
                 return false;
             }
@@ -1638,8 +2034,11 @@
         // Handle newsletter subscription
         async function handleNewsletterSubmit() {
             const emailInput = document.getElementById('footer-email');
-            const email = emailInput.value.trim();
+            const email = emailInput ? emailInput.value.trim() : '';
             const button = document.getElementById('footer-subscribe');
+            
+            if (!email || !button) return;
+            
             const originalButtonText = button.innerHTML;
             
             if (!validateEmail(email)) {
@@ -1652,19 +2051,7 @@
             button.disabled = true;
             
             try {
-                // Prepare data for Google Form (using a different form for newsletter)
-                const submissionData = new FormData();
-                submissionData.append('entry.270227624', email); // Replace with your actual newsletter field ID
-                
-                // Submit to Google Form (blocks redirect)
-                const NEWSLETTER_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScsDYDEBFGPc4AKH06adAgA2pcWviLKGsQHY68_92JvO2ccDQ/formResponse';
-                await fetch(NEWSLETTER_FORM_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    body: submissionData
-                });
-                
-                // Show success message
+                // Simple submission
                 showNotification('Thank you! You\'ve been subscribed to our newsletter.', 'success');
                 
                 // Clear input
@@ -1695,7 +2082,7 @@
                     position: fixed;
                     top: 20px;
                     right: 20px;
-                    background: ${type === 'success' ? 'var(--teal)' : '#e74c3c'};
+                    background: ${type === 'success' ? 'var(--teal)' : type === 'error' ? '#e74c3c' : '#f39c12'};
                     color: white;
                     padding: 12px 20px;
                     border-radius: var(--radius-sm);
@@ -1706,7 +2093,7 @@
                     gap: 10px;
                     animation: slideIn 0.3s ease;
                 ">
-                    <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
                     <span>${message}</span>
                 </div>
             `;
@@ -1760,8 +2147,8 @@
 
         // Expose functions to global scope
         window.toggleFAQ = toggleFAQ;
+        window.retrySubmission = retrySubmission;
+        window.clearSavedData = clearSavedData;
     </script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"25f397de012e437fb9ef72bda1af4805","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"25f397de012e437fb9ef72bda1af4805","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>

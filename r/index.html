@@ -1536,11 +1536,16 @@
     <!-- JavaScript -->
     <script>
         // Google Form Configuration for newsletter
-        const NEWSLETTER_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScsDYDEBFGPc4AKH06adAgA2pcWviLKGsQHY68_92JvO2ccDQ/formResponse';
-        const NEWSLETTER_EMAIL_ENTRY_ID = 'entry.270227624';
-
-        // Registration form configuration (unchanged)
-        const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeQRwofFdTJizP8h2qDSjCkfkwQUm5sY2PVY0OxiCVWPBCe5Q/formResponse';
+        const NEWSLETTER_GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScsDYDEBFGPc4AKH06adAgA2pcWviLKGsQHY68_92JvO2ccDQ/formResponse';
+        const NEWSLETTER_GOOGLE_EMAIL_ENTRY_ID = 'entry.270227624';
+        
+        // FormSubmit.co Configuration for newsletter
+        const NEWSLETTER_FORM_SUBMIT_URL = 'https://formsubmit.co/rforms@tailors.lk';
+        
+        // Registration form configuration (Google Forms)
+        const REGISTRATION_GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeQRwofFdTJizP8h2qDSjCkfkwQUm5sY2PVY0OxiCVWPBCe5Q/formResponse';
+        const REGISTRATION_FORM_SUBMIT_URL = 'https://formsubmit.co/rforms@tailors.lk';
+        
         const FIELD_IDS = {
             fullName: 'entry.130327913',
             businessName: 'entry.70566231',
@@ -1751,7 +1756,7 @@
                 });
             }
 
-            // Footer newsletter subscription - UPDATED to use Google Forms
+            // Footer newsletter subscription
             const footerSubscribe = document.getElementById('footer-subscribe');
             if (footerSubscribe) {
                 footerSubscribe.addEventListener('click', handleNewsletterSubmit);
@@ -1804,7 +1809,7 @@
             }
         }
 
-        // Handle form submission
+        // Handle form submission - DUAL SUBMISSION (Google Forms + FormSubmit.co)
         async function handleFormSubmit(e) {
             e.preventDefault();
             
@@ -1826,10 +1831,12 @@
                 const formData = getFormData();
                 const referenceId = generateReferenceId();
                 
-                // Submit via FormData
-                const submissionSuccess = await submitViaFormData(formData, referenceId);
+                // Submit to BOTH Google Forms and FormSubmit.co
+                const googleSuccess = await submitRegistrationToGoogleForms(formData, referenceId);
+                const formSubmitSuccess = await submitRegistrationToFormSubmit(formData, referenceId);
                 
-                if (submissionSuccess) {
+                // Consider submission successful if at least one backend works
+                if (googleSuccess || formSubmitSuccess) {
                     // Clear saved data on successful submission
                     clearSavedData();
                     
@@ -1843,8 +1850,10 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    
+                    console.log('Registration submitted to at least one backend successfully');
                 } else {
-                    throw new Error('Form submission failed');
+                    throw new Error('Both form submissions failed');
                 }
                 
             } catch (error) {
@@ -1889,8 +1898,8 @@
             return data;
         }
 
-        // Submit using FormData
-        async function submitViaFormData(formData, referenceId) {
+        // Submit registration to Google Forms
+        async function submitRegistrationToGoogleForms(formData, referenceId) {
             return new Promise((resolve) => {
                 try {
                     // Create a hidden iframe
@@ -1902,7 +1911,7 @@
                     // Create a form
                     const form = document.createElement('form');
                     form.method = 'POST';
-                    form.action = GOOGLE_FORM_URL;
+                    form.action = REGISTRATION_GOOGLE_FORM_URL;
                     form.target = iframe.name;
                     form.style.display = 'none';
                     
@@ -1951,12 +1960,117 @@
                     setTimeout(() => {
                         if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
                         if (form.parentNode) form.parentNode.removeChild(form);
-                        console.log('Form submission attempted');
+                        console.log('Registration submitted to Google Forms');
                         resolve(true);
                     }, 2000);
                     
                 } catch (error) {
-                    console.warn('Form submission failed:', error);
+                    console.warn('Google Forms submission failed:', error);
+                    resolve(false);
+                }
+            });
+        }
+
+        // Submit registration to FormSubmit.co
+        async function submitRegistrationToFormSubmit(formData, referenceId) {
+            return new Promise((resolve) => {
+                try {
+                    // Create a hidden iframe
+                    const iframe = document.createElement('iframe');
+                    iframe.name = 'formsubmit-registration-' + Date.now();
+                    iframe.style.display = 'none';
+                    document.body.appendChild(iframe);
+                    
+                    // Create a form
+                    const form = document.createElement('form');
+                    form.method = 'POST';
+                    form.action = REGISTRATION_FORM_SUBMIT_URL;
+                    form.target = iframe.name;
+                    form.style.display = 'none';
+                    
+                    // Add FormSubmit configuration
+                    const subjectInput = document.createElement('input');
+                    subjectInput.type = 'hidden';
+                    subjectInput.name = '_subject';
+                    subjectInput.value = `New Tailor Registration - ${formData.businessName} (${referenceId})`;
+                    form.appendChild(subjectInput);
+                    
+                    // Block redirect and captcha
+                    const nextInput = document.createElement('input');
+                    nextInput.type = 'hidden';
+                    nextInput.name = '_next';
+                    nextInput.value = '#'; // Block redirect
+                    form.appendChild(nextInput);
+                    
+                    const captchaInput = document.createElement('input');
+                    captchaInput.type = 'hidden';
+                    captchaInput.name = '_captcha';
+                    captchaInput.value = 'false';
+                    form.appendChild(captchaInput);
+                    
+                    // Add form data
+                    const nameInput = document.createElement('input');
+                    nameInput.type = 'hidden';
+                    nameInput.name = 'name';
+                    nameInput.value = formData.fullName;
+                    form.appendChild(nameInput);
+                    
+                    const emailInput = document.createElement('input');
+                    emailInput.type = 'hidden';
+                    emailInput.name = 'email';
+                    emailInput.value = formData.email;
+                    form.appendChild(emailInput);
+                    
+                    const businessInput = document.createElement('input');
+                    businessInput.type = 'hidden';
+                    businessInput.name = 'business';
+                    businessInput.value = formData.businessName;
+                    form.appendChild(businessInput);
+                    
+                    const locationInput = document.createElement('input');
+                    locationInput.type = 'hidden';
+                    locationInput.name = 'location';
+                    locationInput.value = formData.location;
+                    form.appendChild(locationInput);
+                    
+                    const phoneInput = document.createElement('input');
+                    phoneInput.type = 'hidden';
+                    phoneInput.name = 'phone';
+                    phoneInput.value = formData.phone;
+                    form.appendChild(phoneInput);
+                    
+                    const servicesInput = document.createElement('input');
+                    servicesInput.type = 'hidden';
+                    servicesInput.name = 'services';
+                    servicesInput.value = formData.services.join(', ') + (formData.otherService ? `, Other: ${formData.otherService}` : '');
+                    form.appendChild(servicesInput);
+                    
+                    const referenceInput = document.createElement('input');
+                    referenceInput.type = 'hidden';
+                    referenceInput.name = 'reference';
+                    referenceInput.value = referenceId;
+                    form.appendChild(referenceInput);
+                    
+                    const sourceInput = document.createElement('input');
+                    sourceInput.type = 'hidden';
+                    sourceInput.name = 'source';
+                    sourceInput.value = 'Tailors.lk Registration Form';
+                    form.appendChild(sourceInput);
+                    
+                    // Submit form
+                    document.body.appendChild(form);
+                    form.submit();
+                    
+                    // Clean up after submission
+                    setTimeout(() => {
+                        if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
+                        if (form.parentNode) form.parentNode.removeChild(form);
+                        console.log('Registration submitted to FormSubmit.co');
+                        resolve(true);
+                    }, 2000);
+                    
+                } catch (error) {
+                    console.warn('FormSubmit.co submission failed:', error);
                     resolve(false);
                 }
             });
@@ -2033,7 +2147,7 @@
             return true;
         }
 
-        // Handle newsletter subscription - UPDATED with Google Forms integration
+        // Handle newsletter subscription - DUAL SUBMISSION (Google Forms + FormSubmit.co)
         async function handleNewsletterSubmit() {
             const emailInput = document.getElementById('footer-email');
             const email = emailInput ? emailInput.value.trim() : '';
@@ -2053,10 +2167,12 @@
             button.disabled = true;
             
             try {
-                // Submit to Google Forms
-                const success = await submitNewsletterToGoogleForms(email);
+                // Submit to BOTH Google Forms and FormSubmit.co
+                const googleSuccess = await submitNewsletterToGoogleForms(email);
+                const formSubmitSuccess = await submitNewsletterToFormSubmit(email);
                 
-                if (success) {
+                // Consider submission successful if at least one backend works
+                if (googleSuccess || formSubmitSuccess) {
                     // Show success message
                     showNotification('Thank you! You\'ve been subscribed to our newsletter.', 'success');
                     
@@ -2071,8 +2187,10 @@
                         button.innerHTML = originalButtonText;
                         button.disabled = false;
                     }, 3000);
+                    
+                    console.log('Newsletter submitted to at least one backend successfully');
                 } else {
-                    throw new Error('Newsletter submission failed');
+                    throw new Error('Both newsletter submissions failed');
                 }
                 
             } catch (error) {
@@ -2085,31 +2203,27 @@
             }
         }
 
-        // Submit newsletter email to Google Forms (blocks redirect)
+        // Submit newsletter email to Google Forms
         async function submitNewsletterToGoogleForms(email) {
             return new Promise((resolve) => {
                 try {
-                    // Create form data
-                    const formData = new FormData();
-                    formData.append(NEWSLETTER_EMAIL_ENTRY_ID, email);
-                    
                     // Create a hidden iframe
                     const iframe = document.createElement('iframe');
-                    iframe.name = 'newsletter-submit-' + Date.now();
+                    iframe.name = 'newsletter-google-' + Date.now();
                     iframe.style.display = 'none';
                     document.body.appendChild(iframe);
                     
                     // Create a form
                     const form = document.createElement('form');
                     form.method = 'POST';
-                    form.action = NEWSLETTER_FORM_URL;
+                    form.action = NEWSLETTER_GOOGLE_FORM_URL;
                     form.target = iframe.name;
                     form.style.display = 'none';
                     
                     // Create hidden input
                     const input = document.createElement('input');
                     input.type = 'hidden';
-                    input.name = NEWSLETTER_EMAIL_ENTRY_ID;
+                    input.name = NEWSLETTER_GOOGLE_EMAIL_ENTRY_ID;
                     input.value = email;
                     form.appendChild(input);
                     
@@ -2121,12 +2235,87 @@
                     setTimeout(() => {
                         if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
                         if (form.parentNode) form.parentNode.removeChild(form);
-                        console.log('Newsletter submission attempted');
+                        console.log('Newsletter submitted to Google Forms');
                         resolve(true);
                     }, 2000);
                     
                 } catch (error) {
-                    console.warn('Newsletter submission failed:', error);
+                    console.warn('Google Forms newsletter submission failed:', error);
+                    resolve(false);
+                }
+            });
+        }
+
+        // Submit newsletter email to FormSubmit.co
+        async function submitNewsletterToFormSubmit(email) {
+            return new Promise((resolve) => {
+                try {
+                    // Create a hidden iframe
+                    const iframe = document.createElement('iframe');
+                    iframe.name = 'newsletter-formsubmit-' + Date.now();
+                    iframe.style.display = 'none';
+                    document.body.appendChild(iframe);
+                    
+                    // Create a form
+                    const form = document.createElement('form');
+                    form.method = 'POST';
+                    form.action = NEWSLETTER_FORM_SUBMIT_URL;
+                    form.target = iframe.name;
+                    form.style.display = 'none';
+                    
+                    // Add FormSubmit configuration
+                    const subjectInput = document.createElement('input');
+                    subjectInput.type = 'hidden';
+                    subjectInput.name = '_subject';
+                    subjectInput.value = 'New Newsletter Subscription - Tailors.lk';
+                    form.appendChild(subjectInput);
+                    
+                    // Block redirect and captcha
+                    const nextInput = document.createElement('input');
+                    nextInput.type = 'hidden';
+                    nextInput.name = '_next';
+                    nextInput.value = '#'; // Block redirect
+                    form.appendChild(nextInput);
+                    
+                    const captchaInput = document.createElement('input');
+                    captchaInput.type = 'hidden';
+                    captchaInput.name = '_captcha';
+                    captchaInput.value = 'false';
+                    form.appendChild(captchaInput);
+                    
+                    // Add form data
+                    const emailInput = document.createElement('input');
+                    emailInput.type = 'hidden';
+                    emailInput.name = 'email';
+                    emailInput.value = email;
+                    form.appendChild(emailInput);
+                    
+                    const nameInput = document.createElement('input');
+                    nameInput.type = 'hidden';
+                    nameInput.name = 'name';
+                    nameInput.value = 'Newsletter Subscriber';
+                    form.appendChild(nameInput);
+                    
+                    const sourceInput = document.createElement('input');
+                    sourceInput.type = 'hidden';
+                    sourceInput.name = 'source';
+                    sourceInput.value = 'Tailors.lk Newsletter Form';
+                    form.appendChild(sourceInput);
+                    
+                    // Submit form
+                    document.body.appendChild(form);
+                    form.submit();
+                    
+                    // Clean up after submission
+                    setTimeout(() => {
+                        if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
+                        if (form.parentNode) form.parentNode.removeChild(form);
+                        console.log('Newsletter submitted to FormSubmit.co');
+                        resolve(true);
+                    }, 2000);
+                    
+                } catch (error) {
+                    console.warn('FormSubmit.co newsletter submission failed:', error);
                     resolve(false);
                 }
             });

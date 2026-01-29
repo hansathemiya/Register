@@ -1533,12 +1533,14 @@
         </div>
     </footer>
 
-    <!-- JavaScript (same as before) -->
+    <!-- JavaScript -->
     <script>
-        // Google Form Configuration
+        // Google Form Configuration for newsletter
+        const NEWSLETTER_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScsDYDEBFGPc4AKH06adAgA2pcWviLKGsQHY68_92JvO2ccDQ/formResponse';
+        const NEWSLETTER_EMAIL_ENTRY_ID = 'entry.270227624';
+
+        // Registration form configuration (unchanged)
         const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeQRwofFdTJizP8h2qDSjCkfkwQUm5sY2PVY0OxiCVWPBCe5Q/formResponse';
-        
-        // Field IDs
         const FIELD_IDS = {
             fullName: 'entry.130327913',
             businessName: 'entry.70566231',
@@ -1749,7 +1751,7 @@
                 });
             }
 
-            // Footer newsletter subscription
+            // Footer newsletter subscription - UPDATED to use Google Forms
             const footerSubscribe = document.getElementById('footer-subscribe');
             if (footerSubscribe) {
                 footerSubscribe.addEventListener('click', handleNewsletterSubmit);
@@ -2031,7 +2033,7 @@
             return true;
         }
 
-        // Handle newsletter subscription
+        // Handle newsletter subscription - UPDATED with Google Forms integration
         async function handleNewsletterSubmit() {
             const emailInput = document.getElementById('footer-email');
             const email = emailInput ? emailInput.value.trim() : '';
@@ -2051,19 +2053,83 @@
             button.disabled = true;
             
             try {
-                // Simple submission
-                showNotification('Thank you! You\'ve been subscribed to our newsletter.', 'success');
+                // Submit to Google Forms
+                const success = await submitNewsletterToGoogleForms(email);
                 
-                // Clear input
-                emailInput.value = '';
+                if (success) {
+                    // Show success message
+                    showNotification('Thank you! You\'ve been subscribed to our newsletter.', 'success');
+                    
+                    // Clear input
+                    emailInput.value = '';
+                    
+                    // Update button to show success
+                    button.innerHTML = '<i class="fas fa-check"></i> Subscribed!';
+                    
+                    // Reset button after 3 seconds
+                    setTimeout(() => {
+                        button.innerHTML = originalButtonText;
+                        button.disabled = false;
+                    }, 3000);
+                } else {
+                    throw new Error('Newsletter submission failed');
+                }
                 
             } catch (error) {
                 console.error('Newsletter submission error:', error);
                 showNotification('Subscription failed. Please try again.', 'error');
-            } finally {
+                
+                // Reset button immediately on error
                 button.innerHTML = originalButtonText;
                 button.disabled = false;
             }
+        }
+
+        // Submit newsletter email to Google Forms (blocks redirect)
+        async function submitNewsletterToGoogleForms(email) {
+            return new Promise((resolve) => {
+                try {
+                    // Create form data
+                    const formData = new FormData();
+                    formData.append(NEWSLETTER_EMAIL_ENTRY_ID, email);
+                    
+                    // Create a hidden iframe
+                    const iframe = document.createElement('iframe');
+                    iframe.name = 'newsletter-submit-' + Date.now();
+                    iframe.style.display = 'none';
+                    document.body.appendChild(iframe);
+                    
+                    // Create a form
+                    const form = document.createElement('form');
+                    form.method = 'POST';
+                    form.action = NEWSLETTER_FORM_URL;
+                    form.target = iframe.name;
+                    form.style.display = 'none';
+                    
+                    // Create hidden input
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = NEWSLETTER_EMAIL_ENTRY_ID;
+                    input.value = email;
+                    form.appendChild(input);
+                    
+                    // Submit form
+                    document.body.appendChild(form);
+                    form.submit();
+                    
+                    // Clean up after submission
+                    setTimeout(() => {
+                        if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
+                        if (form.parentNode) form.parentNode.removeChild(form);
+                        console.log('Newsletter submission attempted');
+                        resolve(true);
+                    }, 2000);
+                    
+                } catch (error) {
+                    console.warn('Newsletter submission failed:', error);
+                    resolve(false);
+                }
+            });
         }
 
         // Show notification
